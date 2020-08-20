@@ -6,26 +6,96 @@
 
 body {
     font-family: 'Ubuntu', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
 }
 
-/* Typography */
+img {
+    max-width: 100%;
+    display: block;
+}
 
-h1 {
+.img-full {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 2em;
+}
+
+/* ============
+    Typography 
+ ============*/
+h1,
+h2,
+h3 {
     font-family: 'Lora', serif;
     font-weight: 400;
     color: #143774;
+
+}
+
+h1 {
     font-size: 2rem;
 }
 
+
+strong {
+    font-weight: 700;
+}
+
+/* the logo subtitle */
 .subtitle {
     font-size: .75rem;
     font-weight: 700;
     text-transform: uppercase;
     color: #1792D2;
-
 }
 
-/* Layout */
+.article-title {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.article-read-more,
+.article-info {
+    font-size: .875rem;
+}
+
+.article-read-more {
+    color: #1792D2;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.article-read-more:hover,
+.article-read-more:focus {
+    color: #141414;
+    text-decoration: underline;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.widget-recent-post-title {
+    font-size: 1rem;
+    margin: 1em 0;
+}
+
+.about-text {
+    margin: 1.2em 0;
+}
+
+
+
+
+/* ============
+    Layout
+ ============*/
 
 .container {
     width: 90%;
@@ -33,31 +103,110 @@ h1 {
     margin: 0 auto;
 }
 
-.container-nav {
+.container-flex {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 header {
     padding: 2em 0;
     background-color: #f8f8f8;
+    text-align: center;
+    margin-bottom: 2.5em;
+}
+
+footer {
+    background: #143374;
+    color: white;
+    text-align: center;
+    padding: 2em 0;
+}
+
+/* articles */
+
+.article-featured {
+    border-bottom: 1px solid #707070;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+.article-recent {
+    display: flex;
+    margin-bottom: 2em;
+    flex-direction: column;
+
+}
+
+.article-recent-main {
+    order: 2;
+
+}
+
+.article-recent-secondary {
+    order: 1;
+
+}
+
+.article-img {
+    width: 100%;
+    min-height: 250px;
+    object-fit: cover;
 }
 
 
+/* widgets */
 
-/* Navigation */
+.sidebar-widget {
+    border: 20px solid #efefef;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.widget-recent-post {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #707070;
+    margin-bottom: 1em;
+}
+
+.widget-recent-post:last-child {
+    border: 0;
+    margin: 0;
+
+}
+
+.widget-img {
+    order: -1;
+}
+
+.widget-body {
+    margin-top: 1em;
+}
+
+.article-info {
+    margin: 2em 0;
+}
+
+.article-body {
+    margin-bottom: 1em;
+}
+
+/* ============
+    Navigation 
+ ============*/
 
 nav ul {
     display: flex;
     list-style: none;
     justify-content: center;
     margin-top: 1em;
+    flex-direction: column;
 }
 
 nav li {
-    font-weight: bold;
     text-transform: uppercase;
-    margin-left: 1em;
+    margin: .5em 0;
 }
 
 nav a {
@@ -79,20 +228,54 @@ nav a:focus {
     color: #707070;
 }
 
-@media (max-width:675px) {
-    .container-nav {
-        flex-direction: column;
+
+
+
+@media (min-width: 769px) {
+    .container-flex {
+        flex-direction: row;
     }
 
-    header {
-        text-align: center;
+    main {
+        width: 70%;
+    }
+
+    aside {
+        width: 25%;
+        min-width: 200px;
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     nav li {
-        margin: .5em 0;
+        margin-left: .8em;
+    }
+
+    .article-featured {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article-img {
+        order: -2;
+    }
+
+    .article-info {
+        order: -1;
+    }
+
+    .article-recent {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .article-recent-main {
+        width: 60%
+    }
+
+    .article-recent-secondary {
+        width: 38%;
     }
 }
